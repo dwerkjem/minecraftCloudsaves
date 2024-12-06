@@ -1,0 +1,7 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "cSpell.words": [
+        "dwerkjem"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
