@@ -1,7 +1,8 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "cSpell.words": [
-        "dwerkjem"
+        "dwerkjem",
+        "pydrive"
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
 }

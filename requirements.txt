@@ -1,0 +1,1 @@
+PyDrive2=1.21.3 # https://github.com/iterative/PyDrive2?tab=readme-ov-file
