@@ -19,7 +19,7 @@ def createConfig(logger):
     logger.info("Creating a new configuration file...")
 
     # Create a new configuration file from the default template (config.default.json)
-    with open("config.default.json") as f:
+    with open(".config.default.json") as f:
         template = f.read()
 
     with open("config.json", "w") as f:
