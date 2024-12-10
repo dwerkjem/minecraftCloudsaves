@@ -1,2 +1,0 @@
-PyDrive2=1.21.3
-questionary=2.0.1
