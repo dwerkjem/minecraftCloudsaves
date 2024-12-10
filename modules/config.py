@@ -5,6 +5,7 @@ import questionary
 
 from modules.clouds.googleDrive import *
 
+
 def createConfig(logger):
     logger.debug("createConfig() called")
     logger.info("Creating a new configuration file...")
@@ -33,12 +34,18 @@ def createConfig(logger):
             "secret_file": questionary.path("Enter the path to the Google Drive secret file:").ask(),
         }
         # test the secret file
-        if not os.path.exists(config["google_drive"]["secret_file"]):
+        secret_file = config["google_drive"]["secret_file"]
+        if not os.path.exists(secret_file):
             logger.error("The Google Drive secret file does not exist")
             return
-        if not testGoogleDrive(logger, config["google_drive"]["secret_file"]):
+        if not testGoogleDrive(logger, secret_file):
             return
-        
+        folders = getGoogleDriveFolderList(logger, secret_file)
+        folder_names = [folder["title"] for folder in folders]
+        folder_names.append("Make a new folder")
+        folder = questionary.select("Select a folder to sync:", choices=folder_names).ask()
+        if folder == "Make a new folder":
+            folder = questionary.text("Enter the name of the new folder:").ask()
 
     with open("config.json", "w") as config_file:
         json.dump(config, config_file, indent=4)
