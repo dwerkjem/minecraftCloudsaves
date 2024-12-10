@@ -1,1 +1,9 @@
+# pycache
 __pycache__
+*.pyc
+
+# secret files
+**client_secrets**
+
+# config files
+config.json
