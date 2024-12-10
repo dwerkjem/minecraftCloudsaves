@@ -6,6 +6,24 @@ args = sys.argv[1:]
 debug = False
 
 def setup_logging():
+    """
+    Sets up the logging configuration with colored output based on the logging level.
+    This function configures the logging module to output log messages to the console
+    with different colors for different log levels. The log level is determined based
+    on the global 'args' variable.
+    Global Variables:
+        args (str): A string containing logging level indicators ('D' for DEBUG, 'V' for INFO, 'S' for ERROR).
+        debug (bool): A flag indicating whether debug mode is enabled.
+    Returns:
+        logging.Logger: A configured logger instance.
+    Raises:
+        None
+    Example:
+        >>> import logging
+        >>> args = 'D'
+        >>> logger = setup_logging()
+        >>> logger.debug("This is a debug message")
+    """
     global args, debug
 
     # ANSI color codes
