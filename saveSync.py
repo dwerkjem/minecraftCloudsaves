@@ -14,8 +14,7 @@ def setup(logger):
         createConfig(logger)
     else:
         logger.info("Configuration file found")
-
-
+        
 
 if __name__ == "__main__":
     logger = setup_logging()

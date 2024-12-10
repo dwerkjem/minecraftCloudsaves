@@ -15,11 +15,11 @@ def createConfig(logger):
     selected_clouds = []
 
     while clouds:
-        cloud = questionary.select("Select a cloud provider:", choices=clouds).ask()
+        cloud = questionary.select("Select a cloud providers:", choices=clouds).ask()
         selected_clouds.append(cloud)
         clouds.remove(cloud)
         if clouds:
-            another = questionary.confirm("Would you like to set up another cloud provider?").ask()
+            another = questionary.confirm("Would you like to set up another cloud provider?", default=False).ask()
             if not another:
                 break
 
@@ -30,4 +30,3 @@ def createConfig(logger):
 
     logger.info("Configuration file created with the following content:")
     logger.info(json.dumps(config, indent=4))
-
