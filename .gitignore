@@ -4,6 +4,8 @@ __pycache__
 
 # secret files
 **client_secrets**
+credentials.json
 
 # config files
 config.json
+
