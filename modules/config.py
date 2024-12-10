@@ -46,6 +46,9 @@ def createConfig(logger):
         folder = questionary.select("Select a folder to sync:", choices=folder_names).ask()
         if folder == "Make a new folder":
             folder = questionary.text("Enter the name of the new folder:").ask()
+            makeFolder(logger, secret_file, folder)
+        config["google_drive"]["folder_name"] = folder
+
 
     with open("config.json", "w") as config_file:
         json.dump(config, config_file, indent=4)
