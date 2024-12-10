@@ -3,7 +3,7 @@ from pydrive2.auth import GoogleAuth
 
 def googleDrive(client_secrets):
     gauth = GoogleAuth()
-    gauth.CommandLineAuth()
+    gauth.LoadClientConfigFile(client_secrets)
     drive = GoogleDrive(gauth)
     return drive
 
