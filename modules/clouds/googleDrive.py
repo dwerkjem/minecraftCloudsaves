@@ -7,7 +7,7 @@ def googleDrive(client_secrets):
     drive = GoogleDrive(gauth)
     return drive
 
-def testGoogleDrive( logger, client_secrets):
+def testGoogleDrive(logger, client_secrets):
     try:
         googleDrive(client_secrets)
         return True
