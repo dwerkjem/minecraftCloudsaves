@@ -56,3 +56,24 @@ def makeFolder(logger, client_secrets, folder_name):
     folder.Upload()
     logger.info(f"Created a new folder '{folder_name}' with ID '{folder['id']}'")
     return folder['id']
+
+def uploadFolder(logger, client_secrets, folder_id, local_folder):
+    drive = googleDrive(client_secrets)
+    folder = drive.CreateFile({'id': folder_id})
+    for root, dirs, files in os.walk(local_folder):
+        for file in files:
+            file_path = os.path.join(root, file)
+            gfile = drive.CreateFile({'title': file, 'parents': [{'id': folder_id}]})
+            gfile.SetContentFile(file_path)
+            gfile.Upload()
+            logger.info(f"Uploaded '{file_path}' to Google Drive")
+    logger.info(f"Uploaded all files from '{local_folder}' to Google Drive folder '{folder_id}'")
+    return folder_id
+
+def downloadFolder(logger, client_secrets, folder_id, local_folder):
+    drive = googleDrive(client_secrets)
+    folder = drive.CreateFile({'id': folder_id})
+    folder.FetchMetadata()
+    folder.GetContentFile(local_folder)
+    logger.info(f"Downloaded Google Drive folder '{folder_id}' to '{local_folder}'")
+    return folder_id
