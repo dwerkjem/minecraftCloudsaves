@@ -11,10 +11,8 @@ import net.dwerkjem.mccloudsaves.commands.*;
 
 @Mod.EventBusSubscriber(modid = MCcloudsaves.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEvents {
-
     private static final Logger LOGGER = MCcloudsaves.LOGGER;
 
-    // Command Registration
     @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
